@@ -1,0 +1,67 @@
+{
+  "drone": {
+    "group": "tool",
+    "name": "Drone",
+    "cost": 10,
+    "seconds": 5,
+    "description": "Deploy a firing drone for 5 seconds."
+  },
+  "helper": {
+    "group": "subagent",
+    "name": "Subagents",
+    "cost": 10,
+    "seconds": 6,
+    "description": "Call Linus Torvalds or Uncle Bob to punch every enemy."
+  },
+  "double": {
+    "group": "tool",
+    "name": "Double weapon",
+    "cost": 6,
+    "seconds": 10,
+    "description": "Fire twin projectiles for 10 seconds."
+  },
+  "shield": {
+    "group": "tool",
+    "name": "Force field",
+    "cost": 6,
+    "seconds": 10,
+    "description": "Block all damage for 10 seconds."
+  },
+  "jump": {
+    "group": "skill",
+    "name": "High jump",
+    "cost": 4,
+    "seconds": 8,
+    "description": "Jump higher for 8 seconds."
+  },
+  "both": {
+    "group": "skill",
+    "name": "Both directions",
+    "cost": 6,
+    "seconds": 10,
+    "description": "Shoot left and right together for 10 seconds."
+  },
+  "wave": {
+    "group": "skill",
+    "name": "Shockwave",
+    "cost": 10,
+    "seconds": 1,
+    "description": "Eliminate normal enemies; leave resistant enemies one hit from defeat."
+  },
+  "heal": {
+    "group": "skill",
+    "name": "Self-healing",
+    "cost": 5,
+    "seconds": 0,
+    "paidOnly": true,
+    "description": "Restore 20 energy, up to 60 maximum. Always costs 5 tokens; no free use."
+  },
+  "vacuum": {
+    "group": "tool",
+    "name": "Vacuum",
+    "cost": 20,
+    "seconds": 25,
+    "paidOnly": true,
+    "description": "Hold FIRE to suck in enemies; release to launch. Release before the fifth enemy: a full tank explodes, costs 6 energy and destroys the vacuum. Lasts 25 seconds; always costs 20 tokens."
+  }
+}

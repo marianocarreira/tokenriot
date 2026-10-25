@@ -1,0 +1,82 @@
+[
+  {
+    "file": "rock-openai.wav",
+    "seconds": 25.9459375,
+    "peak": 0.8699999999999999
+  },
+  {
+    "file": "rock-anthropic.wav",
+    "seconds": 27.4285625,
+    "peak": 0.8699999999999999
+  },
+  {
+    "file": "rock-google.wav",
+    "seconds": 25.6,
+    "peak": 0.87
+  },
+  {
+    "file": "rock-meta.wav",
+    "seconds": 28.23528125,
+    "peak": 0.87
+  },
+  {
+    "file": "rock-x.wav",
+    "seconds": 24.0,
+    "peak": 0.8699999999999999
+  },
+  {
+    "file": "rock-amazon.wav",
+    "seconds": 26.301375,
+    "peak": 0.87
+  },
+  {
+    "file": "rock-microsoft.wav",
+    "seconds": 27.04225,
+    "peak": 0.87
+  },
+  {
+    "file": "rock-boss-pressure.wav",
+    "seconds": 11.4285625,
+    "peak": 0.8699999999999999
+  },
+  {
+    "file": "rock-villain-tension.wav",
+    "seconds": 17.14284375,
+    "peak": 0.87
+  },
+  {
+    "file": "boss-defeat-comedy.wav",
+    "seconds": 8.275875,
+    "peak": 0.87
+  },
+  {
+    "file": "sfx-player-shot.wav",
+    "seconds": 0.13,
+    "peak": 0.87
+  },
+  {
+    "file": "sfx-enemy-shot.wav",
+    "seconds": 0.16,
+    "peak": 0.87
+  },
+  {
+    "file": "sfx-blob-pop.wav",
+    "seconds": 0.28,
+    "peak": 0.87
+  },
+  {
+    "file": "sfx-guard-tick.wav",
+    "seconds": 0.08,
+    "peak": 0.87
+  },
+  {
+    "file": "sfx-ouch-nano.wav",
+    "seconds": 0.4341875,
+    "peak": 0.8699999999999999
+  },
+  {
+    "file": "sfx-ouch-pili.wav",
+    "seconds": 0.321625,
+    "peak": 0.87
+  }
+]

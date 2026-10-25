@@ -1,0 +1,31 @@
+// SPDX-FileCopyrightText: 2026 Mariano Carreira
+// SPDX-License-Identifier: GPL-3.0-only
+import assert from 'node:assert/strict';
+import fs from 'node:fs';import os from 'node:os';import path from 'node:path';import {createRequire} from 'node:module';
+import {MissionBayGame} from './game-engine.js';
+const require=createRequire(import.meta.url),{createService}=require('./challenge-policy.cjs'),catalog=require('./abilities.json');
+let remoteCalls=0;const stateFile=path.join(os.tmpdir(),'riot-ability-'+process.pid+'.json');
+try{const service=createService(async()=>{remoteCalls++;throw Error('No LLM should be called');},{stateFile});const base={session:'ability-qa-session'};
+assert.equal((await service({...base,action:'token-wallet'})).wallet,0);await assert.rejects(service({...base,action:'activate',ability:'heal',tier:0,stage:0,purchaseId:'heal-no-tokens'}),/Not enough/);assert.equal((await service({...base,action:'token-wallet'})).wallet,0);
+const free=await service({...base,action:'activate',ability:'shield',tier:0,stage:0,purchaseId:'purchase-0'});assert.equal(free.cost,0);assert.equal(free.free,true);
+assert.equal((await service({...base,action:'activate',ability:'wave',tier:0,stage:0,purchaseId:'purchase-1'})).cost,0);
+await assert.rejects(service({...base,action:'activate',ability:'shield',tier:0,stage:0,purchaseId:'purchase-2'}),/Not enough/);
+await service({...base,action:'collect',events:[...Array.from({length:42},(_,i)=>({id:'pet-'+i,kind:'pet'}))]});
+for(const [i,ability] of ['drone','wave','wave'].entries())await service({...base,action:'activate',ability,tier:0,stage:0,purchaseId:'paid-action-'+i});assert.equal((await service({...base,action:'wallet'})).wallet,12,'42 regular enemies fund 2 tools + 3 skills with the two free uses');
+assert.equal((await service({...base,action:'activate',ability:'shield',tier:0,stage:0,purchaseId:'purchase-0'})).wallet,12,'free receipt retries do not consume a second allowance');
+const restored=createService(async()=>{throw Error('Unexpected model');},{stateFile});assert.equal((await restored({...base,action:'token-wallet'})).wallet,12);assert.equal((await restored({...base,action:'activate',ability:'shield',tier:0,stage:1,purchaseId:'next-stage-free'})).cost,0);
+assert.equal((await restored({...base,action:'activate',ability:'shield',tier:1,stage:2,purchaseId:'advanced-paid'})).cost,6,'advanced model cannot claim free tools');
+await assert.rejects(restored({...base,action:'activate',ability:'constructor',purchaseId:'bad-prototype'}),/Unknown ability/);assert.equal(remoteCalls,0);
+}finally{for(const file of [stateFile,stateFile+'.tmp'])if(fs.existsSync(file))fs.unlinkSync(file);}
+const drone=new MissionBayGame();drone.activateAbility('drone');assert.equal(drone.activateAbility('drone'),false);for(let n=0;n<320;n++)drone.update(1/60,{});assert.equal(drone.enemies.length,0);assert.equal(drone.drone,null);assert.equal(new Set(drone.rewardEvents.map(e=>e.id)).size,drone.rewardEvents.length);
+const shield=new MissionBayGame();shield.activateAbility('shield');shield.damagePlayer(30);assert.equal(shield.player.hp,60);shield.updateAbilities(10.1);shield.damagePlayer(7);assert.equal(shield.player.hp,53);
+const normal=new MissionBayGame(),jump=new MissionBayGame();jump.activateAbility('jump');normal.update(.01,{jump:true});jump.update(.01,{jump:true});assert.ok(jump.player.vz>normal.player.vz);jump.updateAbilities(8.1);assert.equal(jump.boosts.jump,0);
+const twin=new MissionBayGame();twin.activateAbility('double');twin.pressFire();assert.equal(twin.shots.length,2);assert.equal(twin.player.totalShots,1);twin.updateAbilities(10.1);assert.equal(twin.boosts.double,0);
+const both=new MissionBayGame();both.activateAbility('both');both.pressFire();assert.equal(both.shots.length,2);assert.ok(both.shots.some(s=>s.vx<0)&&both.shots.some(s=>s.vx>0));
+const combo=new MissionBayGame();combo.activateAbility('double');combo.activateAbility('both');combo.pressFire();assert.equal(combo.shots.length,4);
+const wave=new MissionBayGame();wave.enemies[0].hp=2;wave.enemies[1].hp=6;wave.boss={x:700,y:580,hp:80,maxHp:80};wave.activateAbility('wave');assert.equal(wave.enemies[0].hp,0);assert.equal(wave.enemies[1].hp,1);assert.equal(wave.boss.hp,1);assert.equal(wave.shockwaves.length,1);
+for(const variant of ['linus','uncle-bob']){const helper=new MissionBayGame();helper.enemies.forEach(e=>{e.x=200+(e.id*80);e.hp=e.id===1?6:2;});helper.activateAbility('helper',variant);for(let n=0;n<200;n++)helper.update(1/60,{});assert.ok(helper.rewardEvents.length>=2);assert.ok(helper.enemies.every(e=>e.hp===2));}
+combo.retry();assert.ok(Object.values(combo.boosts).every(v=>v===0));console.log('PASS all seven abilities, durations/stacking, helper variants, zero-token start, stage allowances/spending/earnings, persistence and duplicate-charge protection without an LLM.');
+
+const healing=new MissionBayGame();assert.equal(healing.canActivateAbility('heal'),false);healing.player.hp=23;healing.enemies=[];healing.update(.01,{});assert.equal(healing.player.hp,23,'clearing a wave never restores energy');assert.equal(healing.activateAbility('heal'),true);assert.equal(healing.player.hp,43);healing.activateAbility('heal');assert.equal(healing.player.hp,60);assert.equal(healing.activateAbility('heal'),false);healing.enableCoop('Pili','Claude',1);healing.partner.hp=10;healing.forPlayer(1,()=>healing.activateAbility('heal'));assert.equal(healing.partner.hp,30);assert.equal(healing.player.hp,60);
+const healService=createService(async()=>{throw Error('No model call');}),healBase={session:'paid-heal-test'};await healService({...healBase,action:'token-wallet'});await healService({...healBase,action:'collect',events:[{id:'heal-funds',kind:'boss'}]});const paidHeal=await healService({...healBase,action:'activate',ability:'heal',tier:0,stage:0,purchaseId:'healing-paid-one'});assert.equal(paidHeal.cost,5);assert.equal(paidHeal.free,false);assert.equal(paidHeal.wallet,5);const stillFree=await healService({...healBase,action:'activate',ability:'jump',tier:0,stage:0,purchaseId:'other-free-skill'});assert.equal(stillFree.cost,0,'paid healing does not consume the ordinary free skill');console.log('PASS no automatic healing, paid self-healing, max cap and separate co-op healing.');

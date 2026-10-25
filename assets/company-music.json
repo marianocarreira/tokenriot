@@ -1,0 +1,51 @@
+[
+  {
+    "company": "openai",
+    "bpm": 152,
+    "seconds": 12.631578947368421,
+    "style": "Distorted synth rock / token factory",
+    "file": "theme-openai.wav"
+  },
+  {
+    "company": "anthropic",
+    "bpm": 136,
+    "seconds": 14.117647058823529,
+    "style": "Dark safety-lab arpeggios / asymmetric pulse",
+    "file": "theme-anthropic.wav"
+  },
+  {
+    "company": "google",
+    "bpm": 144,
+    "seconds": 13.333333333333334,
+    "style": "Bright search-campus electro funk",
+    "file": "theme-google.wav"
+  },
+  {
+    "company": "meta",
+    "bpm": 128,
+    "seconds": 15.0,
+    "style": "Social-network dance synth / neon pulse",
+    "file": "theme-meta.wav"
+  },
+  {
+    "company": "x",
+    "bpm": 164,
+    "seconds": 11.707317073170731,
+    "style": "Industrial launch-pad rock / thruster bass",
+    "file": "theme-x.wav"
+  },
+  {
+    "company": "amazon",
+    "bpm": 140,
+    "seconds": 13.714285714285714,
+    "style": "Mechanical logistics breakbeat / scanner chips",
+    "file": "theme-amazon.wav"
+  },
+  {
+    "company": "microsoft",
+    "bpm": 132,
+    "seconds": 14.545454545454545,
+    "style": "Retro PC / DOS squarewave action anthem",
+    "file": "theme-microsoft.wav"
+  }
+]

@@ -1,0 +1,49 @@
+html,body.mobile-app{width:100%;height:100%;overflow:hidden;overscroll-behavior:none;touch-action:none;background:#020613}
+.mobile-app main{padding:0;margin:0;width:100vw;height:100dvh;max-width:none;display:flex;align-items:center;justify-content:center}
+.mobile-app header{display:none}
+.mobile-app .cabinet,.mobile-app .cabinet.menu-mode{width:100vw;height:100dvh;max-width:none;max-height:none;aspect-ratio:auto;flex-shrink:0;margin:0;border:0;box-shadow:none}
+.mobile-app #scene{width:100%;height:100%}
+#touch-controls{position:absolute;inset:0;z-index:30;pointer-events:none;user-select:none;-webkit-user-select:none}
+#touch-controls button{pointer-events:auto;touch-action:none;padding:0;border:1px solid #c4fff13d;background:#06172b32;color:#efffffa3;font:bold clamp(10px,1.5vw,13px) monospace;text-shadow:0 1px 3px #000a;box-shadow:none;-webkit-tap-highlight-color:transparent}
+#touch-controls button:active{background:#9af5e044;border-color:#d6fff6a3;color:#fff}
+.touch-stick{--stick-x:0px;--stick-y:0px;position:absolute;left:max(22px,env(safe-area-inset-left));bottom:max(20px,env(safe-area-inset-bottom));width:clamp(112px,30dvh,160px);aspect-ratio:1;pointer-events:auto;touch-action:none;border-radius:50%;background:#07182720;border:1px solid #c4fff12e}
+.stick-ring{position:absolute;inset:16%;border:1px solid #c4fff11c;border-radius:50%;pointer-events:none}
+.stick-thumb{position:absolute;left:28%;top:28%;width:44%;height:44%;border-radius:50%;border:1px solid #ddfff667;background:radial-gradient(circle at 35% 25%,#d4fff035,#163d4f55 70%);box-shadow:0 2px 8px #0003;transform:translate(var(--stick-x),var(--stick-y));pointer-events:none}
+.touch-stick.engaged{border-color:#c4fff169}.engaged .stick-thumb{background:radial-gradient(circle at 35% 25%,#d4fff054,#163d4f66 70%);border-color:#ddfff6a0}
+.touch-actions{--action-size:clamp(44px,12dvh,62px);--action-gap:6px;position:absolute;right:max(20px,env(safe-area-inset-right));bottom:max(18px,env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(3,var(--action-size));grid-template-rows:repeat(3,var(--action-size));gap:var(--action-gap)}
+#touch-controls .touch-actions button{width:var(--action-size);height:var(--action-size);border-radius:50%;display:grid;place-items:center;border:1px solid #bfffee6b;background:radial-gradient(circle at 35% 25%,#baffed1c,#07182729 75%);color:#c5fff0c2;box-shadow:inset 0 1px 1px #efffff18,0 2px 7px #0003}
+.touch-actions [data-action=jump]{grid-area:1/2}.touch-actions [data-action=guard]{grid-area:2/1}.touch-actions [data-action=fire]{grid-area:2/3}.touch-actions [data-action=crouch]{grid-area:3/2}
+#touch-controls .touch-actions .fire{color:#ffb9dedb;border-color:#ff9dcd83;background:radial-gradient(circle at 35% 25%,#ff84c025,#3b123329 75%)}
+#touch-controls .touch-actions button:active{background:#a0ffe43d;border-color:#efffffc9;transform:scale(.95)}
+.touch-actions svg{width:48%;height:48%;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;pointer-events:none;filter:drop-shadow(0 1px 2px #0008)}
+.touch-menu{position:absolute;inset:0;pointer-events:none}
+.touch-menu button{position:absolute;min-width:44px;height:36px;border-radius:9px;padding:0 8px!important}
+.touch-menu [data-key=Escape]{left:max(12px,env(safe-area-inset-left));top:21%;font-size:10px}
+.mobile-app .settings-open,.mobile-app .sound,.mobile-app .cabinet.menu-mode .sound,.mobile-app .console-open{top:max(6px,env(safe-area-inset-top));bottom:auto;width:36px;height:32px;padding:5px;border-radius:7px;background:#06172b40;border-color:#c4fff142;font-size:12px;line-height:20px}
+.mobile-app .settings-open{right:max(54px,calc(env(safe-area-inset-right) + 48px))}
+.mobile-app .sound,.mobile-app .cabinet.menu-mode .sound{right:max(12px,env(safe-area-inset-right));left:auto}
+.mobile-app .console-open{right:max(96px,calc(env(safe-area-inset-right) + 90px))}.mobile-app .console-open-p2{right:max(138px,calc(env(safe-area-inset-right) + 132px));width:44px;font-size:10px}
+.mobile-app .wallet,.mobile-app .coop-mode .wallet{top:2%;left:28%;right:auto;bottom:auto;font-size:clamp(10px,1.6vw,13px);padding:2px 4px;background:#04132544;text-shadow:0 1px 3px #000}
+.mobile-app .wallet-p2,.mobile-app .coop-mode .wallet-p2{top:7%}
+.mobile-app .stage-back{display:none!important}
+.mobile-app .combat-notice{top:22%;left:25%;right:25%;padding:8px 10px;font-size:11px;line-height:1.4;background:#101724b8}
+.mobile-app .dialog{inset:3%;padding:14px;touch-action:pan-y}.mobile-app .dialog button{padding:8px}
+.mobile-app .combat-terminal{left:5%;width:90%;height:84%;top:8%;z-index:90;padding:12px}.mobile-app .combat-terminal pre{font-size:12px;line-height:1.5;touch-action:pan-y}
+.mobile-app.typing-console #touch-controls{display:none}.mobile-app.typing-console .combat-terminal{top:0;height:100%;left:0;width:100%;padding:5px}.mobile-app.typing-console .combat-terminal h2{margin-bottom:2px}
+.mobile-app .model-picker{max-height:60%;touch-action:pan-y}.mobile-app #difficulty-picker{z-index:15}.mobile-app .company-header h1{font-size:clamp(16px,3vw,32px)}
+.mobile-app .company-bottom,.mobile-app .menu-footer{bottom:1%}
+@media(orientation:portrait){.mobile-app main:after{content:'Rotate your phone to play';position:fixed;inset:0;background:#061225f5;display:flex;align-items:center;justify-content:center;color:#9ffff0;font:18px monospace;z-index:150}}
+
+#touch-controls:not(.in-game) .touch-actions{display:none}
+#touch-controls:not(.in-game):not(.navigating) .touch-stick{display:none}
+.mobile-app .menu-footer>span,.mobile-app .company-bottom>span{display:none}
+.mobile-app .player-mode{display:none}
+
+.mobile-app .combat-terminal pre{font-size:13px;line-height:1.6}.mobile-app .combat-terminal #combat-input{font-size:14px}.mobile-app .combat-terminal label{font-size:12px}
+
+#touch-controls .touch-actions #console-open{position:relative;inset:auto;grid-area:2/2;width:var(--action-size);height:var(--action-size);margin:0;padding:0;font:700 19px monospace;color:#b0ffd0;background:#002b1838;border-color:#9bffc64d;box-shadow:inset 0 0 12px #35ff6510;pointer-events:auto}
+@media(orientation:portrait){html[lang="es"] .mobile-app main:after{content:"Girá el teléfono para jugar"}}
+
+.mobile-app .wallet,.mobile-app .coop-mode .wallet{top:max(7px,env(safe-area-inset-top));right:max(14px,env(safe-area-inset-right));left:auto;bottom:auto;gap:5px;padding:2px 5px;font-size:clamp(15px,2.4vw,20px)}.mobile-app .wallet .tr-coin{width:24px;height:24px;font-size:10px}.mobile-app .settings-open{right:max(154px,calc(env(safe-area-inset-right) + 142px))}.mobile-app .sound,.mobile-app .cabinet.menu-mode .sound{right:max(110px,calc(env(safe-area-inset-right) + 98px))}
+
+.mobile-app .badges-won{top:max(43px,calc(env(safe-area-inset-top) + 40px));right:max(14px,env(safe-area-inset-right))}#touch-controls .learning-open{position:absolute;left:50%;bottom:17%;width:44px;height:44px;border-radius:50%;font:700 18px monospace;color:#fbe8b1;background:#243a2360;border:1px solid #e8cf8677;transform:translateX(-50%)}

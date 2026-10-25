@@ -1,0 +1,36 @@
+{
+  "name": "token-riot-intro",
+  "private": true,
+  "license": "GPL-3.0-only",
+  "type": "module",
+  "scripts": {
+    "start": "node server.cjs",
+    "check": "node --check app.js && node --check sprites.js && node --check cinematics.js && node --check game-engine.js && node --check game-view.js && node --check server.cjs && node --check challenge-policy.cjs && node --check mission-view.js && node --check world-finale.js && node --check campaign.js && node --check token-pricing.cjs && node --check offline-economy.js && node --check mobile/main.js && node --check mobile/joystick.js && node --check learning-centers.js && node --check learning-curriculum.js && node --check knowledge-lessons.js && node --check street-life.js && node --check knowledge-ui.js && node --check console-commands.js && node --check i18n.js && node --check i18n-es.js && node --check badge-rewards.js && node --check expertise-score.js && node --check results-rewards.js && node --check save-games.js",
+    "test": "node i18n-test.mjs && node console-commands-test.mjs && node verify.cjs && node knowledge-test.mjs && node expertise-test.mjs && node results-rewards-test.mjs && node save-games-test.mjs && node vacuum-test.mjs && node game-test.mjs && node challenge-test.mjs && node difficulty-test.mjs && node google-test.mjs && node stage-hazards-test.mjs && node combat-audio-test.mjs && node abilities-test.mjs && node finale-test.mjs && node flight-test.mjs && node model-economy-test.mjs && node vercel-test.mjs && node pricing-test.mjs && node coop-economy-test.mjs && node offline-economy-test.mjs",
+    "build:mobile": "node scripts/build-mobile.mjs",
+    "android:sync": "npx cap sync android",
+    "android:apk": "powershell -ExecutionPolicy Bypass -File scripts/build-android.ps1",
+    "test:mobile": "node knowledge-test.mjs && node save-games-test.mjs && node mobile/joystick-test.mjs && node mobile/tap-advance-test.mjs && node vacuum-test.mjs && node offline-economy-test.mjs",
+    "test:security": "node security-test.mjs"
+  },
+  "dependencies": {
+    "@capacitor/android": "8.5.3",
+    "@capacitor/core": "8.5.3"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "8.5.3",
+    "esbuild": "0.28.2"
+  },
+  "overrides": {
+    "xcode": {
+      "uuid": "11.1.1"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/marianocarreira/tokenriot.git"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

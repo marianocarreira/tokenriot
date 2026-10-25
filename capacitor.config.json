@@ -1,0 +1,14 @@
+{
+  "appId": "com.marianocarreira.tokenriot",
+  "appName": "TOKEN RIOT",
+  "webDir": "mobile-dist",
+  "android": {
+    "allowMixedContent": false,
+    "backgroundColor": "#050917",
+    "captureInput": true,
+    "webContentsDebuggingEnabled": false
+  },
+  "server": {
+    "androidScheme": "https"
+  }
+}

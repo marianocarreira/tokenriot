@@ -1,0 +1,92 @@
+{
+  "OpenAI": {
+    "brand": "OpenAI",
+    "modelId": "openai/gpt-4o-mini",
+    "modelName": "OpenAI: GPT-4o-mini",
+    "usdPerToken": 6e-7,
+    "pricedAt": "2026-10-20T03:55:34.146Z",
+    "source": "https://openrouter.ai/api/v1/models",
+    "basis": "completion"
+  },
+  "Claude": {
+    "brand": "Claude",
+    "modelId": "anthropic/claude-haiku-4.5",
+    "modelName": "Anthropic: Claude Haiku 4.5",
+    "usdPerToken": 0.000005,
+    "pricedAt": "2026-10-20T03:55:34.146Z",
+    "source": "https://openrouter.ai/api/v1/models",
+    "basis": "completion"
+  },
+  "Gemini": {
+    "brand": "Gemini",
+    "modelId": "google/gemini-2.5-flash-lite",
+    "modelName": "Google: Gemini 2.5 Flash Lite",
+    "usdPerToken": 4e-7,
+    "pricedAt": "2026-10-20T03:55:34.146Z",
+    "source": "https://openrouter.ai/api/v1/models",
+    "basis": "completion"
+  },
+  "Llama": {
+    "brand": "Llama",
+    "modelId": "meta-llama/llama-3.3-70b-instruct",
+    "modelName": "Meta: Llama 3.3 70B Instruct",
+    "usdPerToken": 3.2e-7,
+    "pricedAt": "2026-10-20T03:55:34.146Z",
+    "source": "https://openrouter.ai/api/v1/models",
+    "basis": "completion"
+  },
+  "Qwen": {
+    "brand": "Qwen",
+    "modelId": "qwen/qwen-2.5-7b-instruct",
+    "modelName": "Qwen: Qwen2.5 7B Instruct",
+    "usdPerToken": 2e-7,
+    "pricedAt": "2026-10-20T03:55:34.146Z",
+    "source": "https://openrouter.ai/api/v1/models",
+    "basis": "completion"
+  },
+  "DeepSeek": {
+    "brand": "DeepSeek",
+    "modelId": "deepseek/deepseek-chat-v3-0324",
+    "modelName": "DeepSeek: DeepSeek V3 0324",
+    "usdPerToken": 0.00000114,
+    "pricedAt": "2026-10-20T03:55:34.146Z",
+    "source": "https://openrouter.ai/api/v1/models",
+    "basis": "completion"
+  },
+  "Mistral": {
+    "brand": "Mistral",
+    "modelId": "mistralai/ministral-8b-2512",
+    "modelName": "Mistral: Ministral 3 8B 2512",
+    "usdPerToken": 1.5e-7,
+    "pricedAt": "2026-10-20T03:55:34.146Z",
+    "source": "https://openrouter.ai/api/v1/models",
+    "basis": "completion"
+  },
+  "Grok": {
+    "brand": "Grok",
+    "modelId": "x-ai/grok-4.3",
+    "modelName": "SpaceXAI: Grok 4.3",
+    "usdPerToken": 0.0000025,
+    "pricedAt": "2026-10-20T03:55:34.146Z",
+    "source": "https://openrouter.ai/api/v1/models",
+    "basis": "completion"
+  },
+  "Kimi": {
+    "brand": "Kimi",
+    "modelId": "moonshotai/kimi-k2",
+    "modelName": "MoonshotAI: Kimi K2 0711",
+    "usdPerToken": 0.0000023,
+    "pricedAt": "2026-10-20T03:55:34.146Z",
+    "source": "https://openrouter.ai/api/v1/models",
+    "basis": "completion"
+  },
+  "Gemma": {
+    "brand": "Gemma",
+    "modelId": "google/gemma-3-4b-it",
+    "modelName": "Google: Gemma 3 4B",
+    "usdPerToken": 5e-8,
+    "pricedAt": "2026-10-20T03:55:34.146Z",
+    "source": "https://openrouter.ai/api/v1/models",
+    "basis": "completion"
+  }
+}

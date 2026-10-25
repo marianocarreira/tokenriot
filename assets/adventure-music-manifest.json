@@ -1,0 +1,58 @@
+[
+  {
+    "file": "adventure-openai-v3.wav",
+    "seconds": 26.301375,
+    "peak": 0.81,
+    "company": "openai",
+    "bpm": 146,
+    "style": "Energetic original 16-bit FM adventure / syncopated funk-rock"
+  },
+  {
+    "file": "adventure-anthropic-v3.wav",
+    "seconds": 27.04225,
+    "peak": 0.81,
+    "company": "anthropic",
+    "bpm": 142,
+    "style": "Energetic original 16-bit FM adventure / syncopated funk-rock"
+  },
+  {
+    "file": "adventure-google-v3.wav",
+    "seconds": 25.26315625,
+    "peak": 0.81,
+    "company": "google",
+    "bpm": 152,
+    "style": "Energetic original 16-bit FM adventure / syncopated funk-rock"
+  },
+  {
+    "file": "adventure-meta-v3.wav",
+    "seconds": 25.9459375,
+    "peak": 0.81,
+    "company": "meta",
+    "bpm": 148,
+    "style": "Energetic original 16-bit FM adventure / syncopated funk-rock"
+  },
+  {
+    "file": "adventure-x-v3.wav",
+    "seconds": 24.3038125,
+    "peak": 0.81,
+    "company": "x",
+    "bpm": 158,
+    "style": "Energetic original 16-bit FM adventure / syncopated funk-rock"
+  },
+  {
+    "file": "adventure-amazon-v3.wav",
+    "seconds": 25.6,
+    "peak": 0.81,
+    "company": "amazon",
+    "bpm": 150,
+    "style": "Energetic original 16-bit FM adventure / syncopated funk-rock"
+  },
+  {
+    "file": "adventure-microsoft-v3.wav",
+    "seconds": 26.66665625,
+    "peak": 0.81,
+    "company": "microsoft",
+    "bpm": 144,
+    "style": "Energetic original 16-bit FM adventure / syncopated funk-rock"
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "file": "adventure-qwen-v3.wav",
+    "seconds": 25.9459375,
+    "peak": 0.8100000000000002,
+    "company": "qwen",
+    "bpm": 148,
+    "style": "Energetic original 16-bit FM adventure / syncopated funk-rock"
+  },
+  {
+    "file": "adventure-deepseek-v3.wav",
+    "seconds": 26.66665625,
+    "peak": 0.81,
+    "company": "deepseek",
+    "bpm": 144,
+    "style": "Energetic original 16-bit FM adventure / syncopated funk-rock"
+  },
+  {
+    "file": "adventure-kimi-v3.wav",
+    "seconds": 25.6,
+    "peak": 0.81,
+    "company": "kimi",
+    "bpm": 150,
+    "style": "Energetic original 16-bit FM adventure / syncopated funk-rock"
+  },
+  {
+    "file": "adventure-finale-v3.wav",
+    "seconds": 24.615375,
+    "peak": 0.81,
+    "company": "finale",
+    "bpm": 156,
+    "style": "Energetic original 16-bit FM adventure / syncopated funk-rock"
+  }
+]

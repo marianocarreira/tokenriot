@@ -1,0 +1,34 @@
+// SPDX-FileCopyrightText: 2026 Mariano Carreira
+// SPDX-License-Identifier: GPL-3.0-only
+import assert from 'node:assert/strict';
+import {MissionBayGame} from './game-engine.js';
+const game=new MissionBayGame('Nano','OpenAI',0);
+game.enableCoop('Pili','Claude',1);
+const p1=game.player,p2=game.partner;
+assert.notEqual(p1.loadout.weapon,p2.loadout.weapon);
+p2.loadout.weapon={tier:1,damage:2,name:'Claude Sonnet',ammo:[Infinity,6,0]};
+game.forPlayer(1,()=>game.pressFire());
+assert.equal(p2.loadout.weapon.ammo[1],5);
+assert.equal(game.weapon.tier,0);
+assert.equal(game.shots[0].owner,1);
+assert.equal(game.shots[0].bulletIndex,1);
+assert.equal(game.shots[0].damage,2);
+game.pressFire();
+assert.equal(game.shots.at(-1).owner,0);
+assert.equal(game.shots.at(-1).bulletIndex,0);
+assert.equal(game.shots.at(-1).damage,1);
+game.forPlayer(1,()=>game.activateAbility('shield'));
+assert.equal(p2.loadout.boosts.shield,10);
+assert.equal(game.boosts.shield,0);
+game.damagePlayer(8,true,p2);assert.equal(p2.hp,60);
+game.damagePlayer(8,true,p1);assert.equal(p1.hp,52);
+const pet=game.enemies[0];game.hitEnemy(pet,pet.hp,1);
+assert.equal(game.rewardEvents.at(-1).owner,1);
+const second=game.enemies.find(e=>e.hp>0);game.forPlayer(1,()=>game.hitEnemy(second,second.hp));
+assert.equal(game.rewardEvents.at(-1).owner,1,'support damage inherits player ownership');
+for(let i=0;i<10;i++)game.update(.05,{},{});
+assert.ok(p2.loadout.boosts.shield<10,'P2 boost timers advance');
+game.retry();assert.equal(p2.loadout.boosts.shield,0);assert.equal(p2.loadout.weapon.tier,1);
+p1.hp=0;game.phase='advance';game.cleared=1;p2.x=game.gate;game.update(.01,{},{});
+assert.equal(game.zone,1,'living P2 can advance when P1 is down');
+console.log('PASS independent cooperative weapons, ammo, branded shots, shields, kill ownership, timers and P2 progression.');

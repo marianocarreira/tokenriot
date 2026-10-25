@@ -1,0 +1,58 @@
+[
+  {
+    "file": "action-openai-v2.wav",
+    "seconds": 31.47540625,
+    "peak": 0.6139970850946116,
+    "company": "openai",
+    "bpm": 122,
+    "style": "Melodic electronic action, clean pluck, restrained 8-bit accents"
+  },
+  {
+    "file": "action-anthropic-v2.wav",
+    "seconds": 32.542375,
+    "peak": 0.5819178356254963,
+    "company": "anthropic",
+    "bpm": 118,
+    "style": "Melodic electronic action, clean pluck, restrained 8-bit accents"
+  },
+  {
+    "file": "action-google-v2.wav",
+    "seconds": 30.0,
+    "peak": 0.5124944915774687,
+    "company": "google",
+    "bpm": 128,
+    "style": "Melodic electronic action, clean pluck, restrained 8-bit accents"
+  },
+  {
+    "file": "action-meta-v2.wav",
+    "seconds": 30.96775,
+    "peak": 0.6173581048471419,
+    "company": "meta",
+    "bpm": 124,
+    "style": "Melodic electronic action, clean pluck, restrained 8-bit accents"
+  },
+  {
+    "file": "action-x-v2.wav",
+    "seconds": 29.09090625,
+    "peak": 0.6025841942021471,
+    "company": "x",
+    "bpm": 132,
+    "style": "Melodic electronic action, clean pluck, restrained 8-bit accents"
+  },
+  {
+    "file": "action-amazon-v2.wav",
+    "seconds": 30.4761875,
+    "peak": 0.6224878391561914,
+    "company": "amazon",
+    "bpm": 126,
+    "style": "Melodic electronic action, clean pluck, restrained 8-bit accents"
+  },
+  {
+    "file": "action-microsoft-v2.wav",
+    "seconds": 32.0,
+    "peak": 0.5667047662578306,
+    "company": "microsoft",
+    "bpm": 120,
+    "style": "Melodic electronic action, clean pluck, restrained 8-bit accents"
+  }
+]

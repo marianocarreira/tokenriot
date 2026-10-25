@@ -1,0 +1,14 @@
+// SPDX-FileCopyrightText: 2026 Mariano Carreira
+// SPDX-License-Identifier: GPL-3.0-only
+import assert from 'node:assert/strict';import {createRequire} from 'node:module';import {MissionBayGame} from './game-engine.js';
+const require=createRequire(import.meta.url),{createService}=require('./challenge-policy.cjs'),models=require('./combat-models.json');
+for(const names of Object.values(models.brands))assert.equal(new Set(names).size,3);
+const service=createService(async()=>{throw Error('Combat purchases must never call an LLM');}),base={session:'model-economy-test'};assert.equal((await service({...base,action:'token-wallet'})).wallet,0);await assert.rejects(service({...base,action:'ammo',tier:1,purchaseId:'pack-0001'}),/Not enough/);
+await service({...base,action:'collect',events:[{id:'boss-paid',kind:'boss'}]});let r=await service({...base,action:'ammo',tier:1,purchaseId:'pack-0001'});assert.equal(r.wallet,9);assert.equal(r.shots,1);r=await service({...base,action:'ammo',tier:1,purchaseId:'pack-0001'});assert.equal(r.wallet,9);assert.equal(r.alreadyCharged,true);r=await service({...base,action:'ammo',tier:2,purchaseId:'pack-0002'});assert.equal(r.wallet,6);await assert.rejects(service({...base,action:'ammo',tier:0,purchaseId:'bad-pack'}),/Invalid/);
+for(const tier of [1,2]){const g=new MissionBayGame();g.weapon.tier=tier;g.weapon.damage=models.tiers[tier].damage;g.weapon.ammo[tier]=6;for(let i=0;i<7;i++){g.player.shot=0;g.releaseFire();g.pressFire();}assert.equal(g.player.totalShots,6);assert.equal(g.weapon.ammo[tier],0);assert.equal(g.shots.length,6);assert.ok(g.shots.every(s=>s.damage===tier+1));assert.ok(g.shots.every(s=>s.size===[29,35,40][tier]));g.weapon.tier=0;g.weapon.damage=1;assert.ok(g.shots.every(s=>s.damage===tier+1),'already-fired projectile preserves paid damage');g.player.shot=0;g.releaseFire();g.pressFire();assert.equal(g.player.totalShots,7);}
+const boosted=new MissionBayGame();boosted.weapon.tier=1;boosted.weapon.damage=2;boosted.weapon.ammo[1]=6;boosted.boosts.double=10;boosted.boosts.both=10;boosted.pressFire();assert.equal(boosted.shots.length,4);assert.equal(boosted.weapon.ammo[1],2);boosted.player.shot=0;boosted.fire();assert.equal(boosted.shots.length,4,'not enough prepaid projectiles to create a four-shot volley');
+console.log('PASS 30 model choices, zero start, paid/idempotent individual projectiles, higher damage, basic unlimited shots and per-projectile boost accounting.');
+
+const freeShot=new MissionBayGame();freeShot.pressFire();assert.equal(freeShot.shots[0].size,29);
+
+const boostedBuy=await service({...base,action:"ammo",tier:1,count:4,purchaseId:"volley-0003"});assert.equal(boostedBuy.shots,4);assert.equal(boostedBuy.cost,4);assert.equal(boostedBuy.wallet,2);await assert.rejects(service({...base,action:"ammo",tier:1,count:6,purchaseId:"bad-0004"}),/count/);

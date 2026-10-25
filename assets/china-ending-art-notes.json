@@ -1,0 +1,11 @@
+{
+  "china-bosses-keyed.png": {
+    "layout": "5 columns x 2 rows; Eddie Wu, Liang Wenfeng, Yang Zhilin, Xi Jinping, Donald Trump; upper fighting, lower comedic defeated",
+    "style": "fictional satirical pixel-art arcade, non-graphic, magenta keyed background",
+    "generator": "built-in image_gen"
+  },
+  "curtain-call.png": {
+    "description": "Peaceful theatrical curtain call with original heroes Nano/Pili and all fictional company rivals, arms around shoulders, waving",
+    "generator": "built-in image_gen"
+  }
+}

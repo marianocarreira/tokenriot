@@ -1,0 +1,56 @@
+[
+  {
+    "file": "oriental-qwen.wav",
+    "seconds": 26.66665625,
+    "peak": 0.8,
+    "bpm": 144,
+    "scale": "major pentatonic",
+    "instruments": "zither plucks, bowed strings, bamboo-style flute, electronic bass, arcade drums",
+    "original": true
+  },
+  {
+    "file": "oriental-deepseek.wav",
+    "seconds": 27.4285625,
+    "peak": 0.8,
+    "bpm": 140,
+    "scale": "major pentatonic",
+    "instruments": "zither plucks, bowed strings, bamboo-style flute, electronic bass, arcade drums",
+    "original": true
+  },
+  {
+    "file": "oriental-kimi.wav",
+    "seconds": 25.9459375,
+    "peak": 0.8,
+    "bpm": 148,
+    "scale": "major pentatonic",
+    "instruments": "zither plucks, bowed strings, bamboo-style flute, electronic bass, arcade drums",
+    "original": true
+  },
+  {
+    "file": "oriental-finale.wav",
+    "seconds": 25.26315625,
+    "peak": 0.8,
+    "bpm": 152,
+    "scale": "major pentatonic",
+    "instruments": "zither plucks, bowed strings, bamboo-style flute, electronic bass, arcade drums",
+    "original": true
+  },
+  {
+    "file": "oriental-story.wav",
+    "seconds": 34.28571875,
+    "peak": 0.8,
+    "bpm": 112,
+    "scale": "major pentatonic",
+    "instruments": "zither plucks, bowed strings, bamboo-style flute, electronic bass, arcade drums",
+    "original": true
+  },
+  {
+    "file": "oriental-boss.wav",
+    "seconds": 24.615375,
+    "peak": 0.8,
+    "bpm": 156,
+    "scale": "major pentatonic",
+    "instruments": "zither plucks, bowed strings, bamboo-style flute, electronic bass, arcade drums",
+    "original": true
+  }
+]
