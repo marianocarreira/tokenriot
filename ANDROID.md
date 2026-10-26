@@ -1,37 +1,39 @@
-# TOKEN RIOT — Android 0.1.15
+# TOKEN RIOT — Android 0.1.16
 
-Este proyecto incluye una app Android basada en Capacitor 8.5.3.
+The Android application uses Capacitor 8.5.3 and includes the game and audio.
+It runs without the desktop server. English is the default; Spanish and
+Simplified Chinese can be selected in Settings and are remembered locally.
 
-- Juego y música incluidos dentro del APK; no requiere el servidor de la PC.
-- Joystick analógico y botones de acción con íconos. El botón >_ abre la consola desde el centro del grupo de acciones. Tocar la pantalla avanza las escenas.
-- Android admite un jugador. El cooperativo de dos jugadores está disponible en PC.
-- Consola con teclado de Android y selector táctil de modelos. Configuración permite alternar inglés/español.
-- Tokens, controles, idioma y progreso de insignias guardados en SQLite privado (`token-riot.db`). Cada partida nueva sigue empezando en cero tokens.
-- Learning Centers con práctica continua por dificultad e insignias virtuales por empresa/nivel.
-- Modo inmersivo que oculta las barras de estado y navegación y se restablece al volver a la app o cerrar el teclado. Los gestos del sistema pueden mostrarlas temporalmente.
-- Funciona sin conexión. La valoración final usa precios verificados incluidos; intenta actualizarlos al terminar si hay conexión.
+- Single-player touch joystick, action buttons and touch-to-advance scenes.
+- The terminal button opens the console with the Android keyboard.
+- Private SQLite storage keeps controls, language, saves and learning progress.
+- Each new campaign starts with zero virtual tokens.
+- Offline play is supported. Final valuation uses included verified prices and
+  attempts an online refresh when a connection is available.
 
-## Compilar otra vez en Windows
+## Build on Windows
 
-Se requieren Node 22+, JDK 21 y Android SDK (plataforma 36 y build-tools). Configurá JDK y Android SDK en tu entorno; las herramientas locales de desarrollo no se distribuyen.
+Install Node.js 22+, JDK 21 and Android SDK platform 36 with build tools.
+Set JAVA_HOME and ANDROID_HOME for your installation. Local portable tooling,
+credentials and signing keys are not distributed with the repository.
 
 ```powershell
 npm ci
 npm run android:apk
 ```
 
-El script compila los recursos, sincroniza Capacitor y genera `dist/TOKEN-RIOT-android-v0.1.15.apk`.
+The build script bundles resources, synchronizes Capacitor and builds
+`dist/TOKEN-RIOT-android-v0.1.16.apk`.
 
-## Instalar
+## Install and verify
 
-Copiar el APK al teléfono y abrirlo. Android puede solicitar permitir la instalación desde esa aplicación de archivos. Es una compilación de prueba firmada para instalación directa; no es una publicación de Google Play.
+Copy the APK to the phone and open it. Android may require allowing installation
+from the file manager. This is a directly installed beta, not a Google Play
+release. No physical Android device was connected for this build's verification.
 
-## Verificación
+Run `npm run test:mobile` and `npm test`. Tests cover save persistence, input,
+token accounting, offline parity and all three language catalogs.
 
-Se ejecutan las pruebas del juego y `offline-economy-test.mjs`, que compara el servicio móvil con el de escritorio: cobro individual de proyectiles, curación paga, saldos separados, restauración de la base, idempotencia y manejo de fallos al guardar.
-
-La compilación no incluye `.env.local`, claves, las partidas privadas del escritorio ni el servidor Node. No se ha probado en un teléfono físico conectado.
-
-## Endurecimiento de la beta
-
-La depuración de la aplicación y del WebView está desactivada incluso en la variante de instalación directa. Se bloquea HTTP claro, se mantiene el backup deshabilitado y el FileProvider solo permite el subdirectorio de caché compartida. El APK sigue siendo una beta firmada para instalación directa, no una publicación de producción en Google Play.
+App and WebView debugging are disabled, cleartext HTTP and backup are disabled,
+and FileProvider is restricted to the shared cache subdirectory. The package
+does not include the Node server, API keys, private desktop saves or local tools.

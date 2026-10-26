@@ -1,28 +1,22 @@
-# Copyright y licencia de TOKEN RIOT
+# TOKEN RIOT copyright and license
 
 Copyright (C) 2026 Mariano Carreira.
 
-El código original del videojuego TOKEN RIOT se distribuye bajo la GNU
-General Public License, versión 3 exclusivamente (SPDX: GPL-3.0-only).
+Original software is licensed under the GNU General Public License, version 3
+only (SPDX: GPL-3.0-only). The complete, unmodified license is provided in
+LICENSE and COPYING. LICENSE-SCOPE.md describes the scope and exclusions.
 
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, version 3 of the License.
+This program is free software: you can redistribute it and/or modify it under
+the terms of version 3 of the GNU General Public License as published by the
+Free Software Foundation. It is distributed WITHOUT ANY WARRANTY, including
+the implied warranties of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+See the full license for its terms. If a copy was not included, visit
+https://www.gnu.org/licenses/.
 
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
+Licensing does not transfer copyright ownership. Contributors retain copyright
+in their contributions unless a separate assignment expressly provides otherwise.
+Previously granted GPL rights remain subject to the terms of that license.
+No ownership of third-party trademarks, characters, likenesses or components
+is claimed through this notice.
 
-You should have received a copy of the GNU General Public License
-along with this program. If not, see <https://www.gnu.org/licenses/>.
-
-El texto completo está en [COPYING](COPYING). El alcance y las exclusiones
-están en [LICENSE-SCOPE.md](LICENSE-SCOPE.md).
-
-La licencia concede permisos de uso, modificación y distribución; no transfiere
-la titularidad del copyright. Cada colaborador conserva la titularidad de sus
-aportes, salvo un acuerdo de cesión separado. Las versiones ya entregadas bajo
-GPLv3 conservan los permisos de esa licencia mientras se cumplan sus condiciones.
-
-Contacto del proyecto: contact@token-riot.com.
+The project's sole contact address is contact@token-riot.com.

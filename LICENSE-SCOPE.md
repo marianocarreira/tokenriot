@@ -1,38 +1,39 @@
-# Alcance de las licencias de TOKEN RIOT
+# License scope
 
-Copyright (C) 2026 Mariano Carreira, para el código y las obras originales
-de su autoría. La titularidad no se transfiere por publicar este repositorio.
+Copyright (C) 2026 Mariano Carreira for original software and works authored by him.
+Publishing this repository does not transfer copyright ownership.
 
-## Código original: GPL-3.0-only
+## Original software: GPL-3.0-only
 
-El código fuente original, sus pruebas, scripts propios y documentación técnica
-se distribuyen bajo GNU GPL versión 3 exclusivamente. El texto íntegro está en
-LICENSE y COPYING. Los avisos de terceros se conservan y no se sustituyen.
-GPLv3 permite uso comercial y venta de copias. Al distribuir derivados cubiertos
-se deben cumplir sus obligaciones, incluido proporcionar el código fuente
-correspondiente. Los cambios puramente privados no deben publicarse por ese
-solo hecho. El responsable dirige la rama oficial; los destinatarios pueden
-mantener forks conforme a la licencia.
+Original source code, tests, original scripts and technical documentation are
+licensed under GNU GPL version 3 only. LICENSE and COPYING contain the full
+license. Existing third-party notices and licenses are preserved.
 
-## Recursos visuales, audio y obras narrativas separadas
+GPLv3 permits commercial use and selling copies. Distribution of covered
+derivatives must comply with its conditions, including providing corresponding
+source as required. Purely private modifications do not have to be published
+merely because they were made. The maintainer directs the official branch;
+recipients may maintain forks under the GPL.
 
-Los PNG, WebP, JPEG, audio, videos, ilustraciones, cómics e historias como obras
-separadas no reciben automáticamente GPL por acompañar al software. Los derechos
-del material original se reservan a su titular; este aviso no concede una licencia
-abierta para esos recursos. El código público puede depender de esos recursos
-para reproducir la presentación oficial. No se declara que todo el contenido
-multimedia del juego sea contenido libre. La narrativa incorporada en el código
-no limita los permisos GPL sobre ese código.
+## Separate artwork, audio and narrative works
 
-Nombres, logos, personajes e imagen de terceros conservan los derechos de sus
-respectivos titulares. No se afirma titularidad sobre ellos ni un permiso de
-uso comercial de sus marcas. Los recursos generados no acreditan por sí solos
-derechos exclusivos sobre elementos de terceros.
+Images, audio, videos, illustrations, comics and stories as separate works do
+not automatically receive a GPL license because they accompany the software.
+Rights in original media are reserved to their respective copyright holders;
+this notice does not grant an open license to those assets. The public code
+may depend on these assets to reproduce the official presentation. The entire
+multimedia content is not represented as freely licensed content. Narrative
+included in source code does not restrict GPL permissions over that code.
 
-## Dependencias y proyecto comercial separado
+Third-party names, logos, characters and likenesses retain the rights of their
+respective holders. Their appearance does not grant trademark or commercial
+merchandising rights, and generated images do not establish exclusive rights
+over third-party elements.
 
-Las dependencias conservan sus propias licencias. Véase THIRD_PARTY_NOTICES.md.
-La tienda, su servicio de pagos, libros comerciales, fuentes de mercancía y datos
-de compradores están excluidos de este repositorio y de su concesión GPL.
+## Dependencies and separate commercial project
 
-Contacto único de permisos, seguridad y soporte: contact@token-riot.com.
+Dependencies retain their own licenses; see THIRD_PARTY_NOTICES.md.
+The proprietary store, payment backend, commercial books, exclusive product
+sources and customer data are excluded from this repository and its GPL grant.
+
+The sole address for permissions, security and support is contact@token-riot.com.

@@ -1,68 +1,66 @@
 # TOKEN RIOT
 
-Arcade cyberpunk satírico protagonizado por Nano y Pili, con campaña por doce
-escenarios, economía de tokens virtuales, aprendizaje y cooperativo local en PC.
-Las personas, diálogos y conflictos son representaciones ficticias y satíricas.
+A satirical cyberpunk arcade adventure starring Nano and Pili, with twelve
+stages, a virtual-token economy, learning centers and local desktop co-op.
+Characters, dialogue and conflicts are fictional and satirical.
 
-- Sitio y juego web: https://www.token-riot.com/ y https://www.token-riot.com/play/.
-- Android: descarga directa de APK desde el sitio. No es una publicación de Google Play.
-- Sitio de presentación: repositorio separado `marianocarreira/tokenriotwebsite`.
-- Store: https://www.token-riot.store/, proyecto y repositorio propietarios separados.
-- Único contacto: **contact@token-riot.com**.
+- Website: https://www.token-riot.com/
+- Browser game: https://www.token-riot.com/play/
+- Android: direct APK download from the website; not a Google Play release.
+- Website source: https://github.com/marianocarreira/tokenriotwebsite
+- Store: https://www.token-riot.store/, a separate proprietary project.
+- Sole contact: **contact@token-riot.com**.
 
-## Ejecutar localmente
+## Run locally
 
-Requiere Node.js 22 o posterior.
+Requires Node.js 22 or later.
 
 ```sh
 npm ci
 npm start
 ```
 
-Abrí http://127.0.0.1:4173/. El servidor escucha solamente en loopback.
-No requiere una clave de API para jugar. El catálogo público de precios puede
-actualizarse por internet; los tokens y su conversión son virtuales.
-Controles, idioma y dificultad se muestran en el juego.
+Open http://127.0.0.1:4173/. The server listens only on loopback. No API key is
+required to play. The public model-price catalog can update online; tokens and
+their USD conversion are entirely virtual.
+
+## Languages
+
+The game supports English (default), Spanish and Simplified Chinese. Select a
+language in Settings; the choice is saved locally. Menus, dialogue, console
+messages, original study notes and all provider-specific learning questions are
+localized. Console commands, identifiers and proper names are preserved.
+The browser edition also inherits the site's language on first use when no
+separate game language has been saved. Documentation is English only.
 
 ## Android
 
-Consultá [ANDROID.md](ANDROID.md) para requisitos, compilación e instalación.
-El APK incluye juego y audio, usa almacenamiento privado local y permite un jugador.
-El cooperativo de dos jugadores está disponible en PC.
+See [ANDROID.md](ANDROID.md) for requirements and build instructions. Version
+0.1.16 includes the three languages, touch controls and local private storage.
+Android supports one player; desktop supports local two-player co-op.
 
-## Verificación
+## Validation
 
 ```sh
 npm run check
 npm test
 npm run test:security
+npm run test:mobile
 npm audit
 ```
 
-Consultá [SECURITY.md](SECURITY.md) para reportar problemas de seguridad.
-El servidor local y el saldo virtual no deben usarse como backend de pagos reales.
+The tests cover reversible language switching, Chinese text wrapping,
+curriculum coverage, gameplay, token accounting, saves and local HTTP security.
+The local server and virtual balances must not be used as a real-payment backend.
 
-## Copyright y licencia
+## Copyright and licensing
 
-Copyright (C) 2026 Mariano Carreira.
+Copyright (C) 2026 Mariano Carreira. Original software is licensed under
+**GNU GPL version 3 only (GPL-3.0-only)** without warranty. See COPYRIGHT.md,
+LICENSE, COPYING and LICENSE-SCOPE.md. Licensing does not transfer ownership.
+Covered distributed derivatives must comply with GPLv3, including corresponding
+source obligations. Commercial use is allowed. Separate media and third-party
+components retain their own rights. Store software is excluded.
 
-El código original se distribuye bajo **GNU GPL versión 3 exclusivamente**
-(`GPL-3.0-only`), sin garantías. Véanse [COPYRIGHT.md](COPYRIGHT.md) y el texto
-íntegro en [COPYING](COPYING). La licencia concede permisos y no transfiere
-la titularidad del copyright.
-
-Al distribuir derivados cubiertos deben respetarse las condiciones de GPLv3,
-incluida la entrega del código fuente correspondiente. GPLv3 permite vender copias.
-Los recursos no software y el material de terceros tienen un alcance separado:
-[LICENSE-SCOPE.md](LICENSE-SCOPE.md). La store no está incluida en esta licencia.
-
-El código del juego y del sitio se publica en repositorios independientes con
-historial saneado. La store permanece privada y propietaria.
-
-## Colaboración y seguridad
-
-Consultá [CONTRIBUTING.md](CONTRIBUTING.md), el borrador [CLA.md](CLA.md) y
-[SECURITY.md](SECURITY.md). Reportá vulnerabilidades de forma privada a
-contact@token-riot.com.
-
-El historial interno y las capturas de desarrollo no se incluyen en esta publicación.
+The public repository starts from sanitized source and does not include private
+development history or captures. See CONTRIBUTING.md, CLA.md and SECURITY.md.

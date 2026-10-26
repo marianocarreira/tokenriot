@@ -22,5 +22,9 @@ await rm(assetDir,{recursive:true,force:true});await mkdir(assetDir,{recursive:t
 for(const name of names)await copyFile('assets/'+name,assetDir+'/'+name);
 await writeFile(out+'/asset-manifest.json',JSON.stringify([...names].sort(),null,2));
 await secureHTML(out+'/index.html');
+// Keep English license and attribution notices with every distributed APK.
+for(const name of ['COPYING','COPYRIGHT.md','LICENSE-SCOPE.md','THIRD_PARTY_NOTICES.md'])await copyFile(name,out+'/'+name);
+await mkdir(out+'/LICENSES',{recursive:true});
+for(const name of ['capacitor-MIT.txt','esbuild-MIT.txt'])await copyFile('LICENSES/'+name,out+'/LICENSES/'+name);
 console.log(names.size+' runtime media assets included.');
 console.log('Android web bundle built without server, credentials, tests or private saves.');

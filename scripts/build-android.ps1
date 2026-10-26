@@ -20,5 +20,5 @@ if($LASTEXITCODE -ne 0){throw 'Android sync failed.'}
 & ./android/gradlew.bat -p android assembleDebug --no-daemon --console=plain
 if($LASTEXITCODE -ne 0){throw 'APK compilation failed.'}
 New-Item -ItemType Directory -Force -Path dist | Out-Null
-Copy-Item -LiteralPath android/app/build/outputs/apk/debug/app-debug.apk -Destination dist/TOKEN-RIOT-android-v0.1.15.apk -Force
-Write-Host 'APK: dist/TOKEN-RIOT-android-v0.1.15.apk'
+Copy-Item -LiteralPath android/app/build/outputs/apk/debug/app-debug.apk -Destination dist/TOKEN-RIOT-android-v0.1.16.apk -Force
+Write-Host 'APK: dist/TOKEN-RIOT-android-v0.1.16.apk'

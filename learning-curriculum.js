@@ -1,8 +1,10 @@
 // SPDX-FileCopyrightText: 2026 Mariano Carreira
 // SPDX-License-Identifier: GPL-3.0-only
 // Original provider-specific preparation material, with official reference links.
+import {CHINESE_TOPICS} from './learning-curriculum-zh.js';
 export const CURRICULUM_VERSION=3;
 export const CURRICULUM_TRANSLATIONS={};
+export const CURRICULUM_CHINESE={};
 export const PROVIDER_TOPICS=[
  [
   [
@@ -679,14 +681,14 @@ export const PROVIDER_TOPICS=[
 ];
 const curriculumNames=['OpenAI','Anthropic','Google','Meta','xAI','Amazon','Microsoft','Qwen','DeepSeek','Kimi','AI Alliance','Vercel'];
 const pair=value=>value.split('§');
-function register(en,es){CURRICULUM_TRANSLATIONS[en]=es;return en;}
-export function buildCurriculum(bank){return bank.map((entry,stage)=>{const name=curriculumNames[stage],topics=PROVIDER_TOPICS[stage],questions=[];for(const level of ['Easy','Medium','Hard'])register(name+' '+level,name+' '+level);
- for(const [difficulty,level] of ['easy','medium','hard'].entries())for(let index=0;index<topics.length;index++){const topic=topics[index],next=topics[(index+1)%topics.length],other=topics[(index+2)%topics.length],title=pair(topic[0]),definition=pair(topic[1]),use=pair(topic[2]),problem=pair(topic[3]),fix=pair(topic[4]),detail=pair(topic[5]);
- const prompt=difficulty===0?['In '+name+', what is '+title[0]+'?','En '+name+', ¿qué es '+title[1]+'?']:difficulty===1?['Your '+name+' app needs to '+use[0]+'. Which feature fits?','Tu aplicación de '+name+' necesita '+use[1]+'. ¿Qué función corresponde?']:['In '+name+', '+problem[0],'En '+name+', '+problem[1]];
- const column=difficulty===0?1:difficulty===1?0:4,choices=[pair(topic[column]),pair(next[column]),pair(other[column])],answer=(stage+index+difficulty)%3;// Deterministic rotation keeps answer positions balanced.
+function register(en,es,zh){CURRICULUM_TRANSLATIONS[en]=es;if(typeof zh==='string'&&zh)CURRICULUM_CHINESE[en]=zh;return en;}
+export function buildCurriculum(bank){return bank.map((entry,stage)=>{const name=curriculumNames[stage],topics=PROVIDER_TOPICS[stage],questions=[];for(const [i,level] of ['Easy','Medium','Hard'].entries())register(name+' '+level,name+' '+level,name+' '+['简单','中等','困难'][i]);
+ for(const [difficulty,level] of ['easy','medium','hard'].entries())for(let index=0;index<topics.length;index++){const topic=topics[index],next=topics[(index+1)%topics.length],other=topics[(index+2)%topics.length],zh=CHINESE_TOPICS[stage][index],withChinese=(row,column)=>[...pair(row[column]),CHINESE_TOPICS[stage][topics.indexOf(row)][column]],title=[...pair(topic[0]),zh[0]],definition=[...pair(topic[1]),zh[1]],use=[...pair(topic[2]),zh[2]],problem=[...pair(topic[3]),zh[3]],fix=[...pair(topic[4]),zh[4]],detail=[...pair(topic[5]),zh[5]];
+ const prompt=difficulty===0?['In '+name+', what is '+title[0]+'?','En '+name+', ¿qué es '+title[1]+'?','在 '+name+' 中，'+title[2]+'是什么？']:difficulty===1?['Your '+name+' app needs to '+use[0]+'. Which feature fits?','Tu aplicación de '+name+' necesita '+use[1]+'. ¿Qué función corresponde?','你的 '+name+' 应用需要'+use[2]+'。哪项功能适合？']:['In '+name+', '+problem[0],'En '+name+', '+problem[1],'在 '+name+' 中，'+problem[2]];
+ const column=difficulty===0?1:difficulty===1?0:4,choices=[withChinese(topic,column),withChinese(next,column),withChinese(other,column)],answer=(stage+index+difficulty)%3;// Deterministic rotation keeps answer positions balanced.
  const ordered=Array.from({length:3},(_,i)=>choices[(i-answer+3)%3]);
- const explanation=difficulty===0?definition:difficulty===1?[definition[0]+' '+detail[0],definition[1]+' '+detail[1]]:[fix[0]+' '+detail[0],fix[1]+' '+detail[1]];
- const body=[definition[0]+' Use it to '+use[0]+'. '+detail[0],definition[1]+' Usalo para '+use[1]+'. '+detail[1]],exercise=['Explain a concrete '+name+' example using '+title[0]+'.','Explicá un ejemplo concreto de '+name+' que use '+title[1]+'.'];
+ const explanation=difficulty===0?definition:difficulty===1?[definition[0]+' '+detail[0],definition[1]+' '+detail[1],definition[2]+detail[2]]:[fix[0]+' '+detail[0],fix[1]+' '+detail[1],fix[2]+detail[2]];
+ const body=[definition[0]+' Use it to '+use[0]+'. '+detail[0],definition[1]+' Usalo para '+use[1]+'. '+detail[1],definition[2]+'可用于'+use[2]+'。'+detail[2]],exercise=['Explain a concrete '+name+' example using '+title[0]+'.','Explicá un ejemplo concreto de '+name+' que use '+title[1]+'.','举一个在 '+name+' 中使用'+title[2]+'的具体例子。'];
  questions.push({id:stage+'-expertise3-'+level+'-'+index,level,topic:register(...title),prompt:register(...prompt),options:ordered.map(o=>register(...o)),answer,explanation:register(...explanation),source:topic[6],lesson:{title:register(...title),body:register(...body),exercise:register(...exercise)}});
  }
  return {...entry,badgeName:name,questions};

@@ -1,6 +1,6 @@
 // SPDX-FileCopyrightText: 2026 Mariano Carreira
 // SPDX-License-Identifier: GPL-3.0-only
-import {tr} from './i18n.js';
+import {tr,wrapLocalizedText} from './i18n.js';
 import {stageNumber} from './campaign.js';
 import {CHINA_STORIES,drawChinaBackdrop} from './world-finale.js';
 import {art,drawCharacter,drawBullet,drawBoss} from './sprites.js';
@@ -50,7 +50,7 @@ export const STAGE_STORIES=[null,
  [['SEATTLE // THE DELIVERY EMPIRE','Glass spheres rise above an endless stream of parcels.'],['THE GOLDEN CHECKOUT // FICTION','Every street becomes a checkout. Every citizen, a customer.'],['THE PRICE OF EVERYTHING // FICTION','JEFF: "Your last coin belongs in my cart!"']],
  [['REDMOND // COPILOT ONLINE','A fictional Bill Gates arcade avatar enters the control room.'],['THE PANIC BROADCAST // FICTION','Imaginary pandemic alarms fill the screens while the coin counter climbs.'],['THE FEAR MERCHANT // FICTION','BILL: "Keep them afraid. Keep them paying!"']]
 ];
-function wrapStory(c,text,x,y,width,size=28){text=tr(text);c.font='bold '+size+'px monospace';let line='',row=0;for(const word of text.split(' ')){const next=line?line+' '+word:word;if(c.measureText(next).width>width&&line){storyText(c,line,x,y+row*34,size);row++;line=word;}else line=next;}storyText(c,line,x,y+row*34,size);}
+function wrapStory(c,text,x,y,width,size=28){c.font='bold '+size+'px monospace';for(const [row,line] of wrapLocalizedText(c,text,width).entries())storyText(c,line,x,y+row*34,size);}
 export function drawStageStory(c,t,index,page){
  if(index===0){drawComic(c,t,page);return;}
  if(index===11){c.fillStyle='#030716';c.fillRect(0,0,1280,720);c.save();c.beginPath();c.rect(0,35,1280,510);c.clip();c.drawImage(art.vercel,0,0,1280,600);drawBoss(c,12,880+Math.sin(t)*8,535,340,1);c.restore();const story=[['SAN FRANCISCO // A NEW DEPLOY','Guille Rauch opens the gates of a fictional Vercel deployment empire.'],['THE EDGE ARMY // FICTION','Triangle drones, mates, thermoses, alfajores and web servers guard every route.'],['THE LAST DEPLOY // FICTION','GUILLE: "Every request reaches my edge. Can you ship your way through?"']][page];storyText(c,'FICTIONAL SATIRICAL ARCADE STORY',180,25,17,'#9edce6');storyText(c,(page+1)+' / 3',1240,25,17,'#9edce6','right');storyText(c,story[0],30,585,23,'#c8faff');wrapStory(c,story[1],30,627,1210);storyText(c,'Press Enter',1240,535,20,'#fff','right');return;}

@@ -124,5 +124,6 @@ header .credits{position:static;padding:3px 6px;background:#112136;color:#ffe2a2
 #settings-panel .language-setting{display:flex;align-items:center;justify-content:flex-start;gap:16px;margin:12px 0 22px}
 #settings-panel #game-language{min-height:32px;padding:4px 22px 4px 0;border:0;border-radius:0;background:transparent;color:inherit;font:inherit;cursor:pointer}
 #game-language option{background:#061225;color:#caffff}
+html:lang(zh-CN) body,html:lang(zh-CN) button,html:lang(zh-CN) input,html:lang(zh-CN) select,html:lang(zh-CN) textarea,html:lang(zh-CN) .knowledge-panel{font-family:"Noto Sans SC","Microsoft YaHei","PingFang SC",system-ui,sans-serif;letter-spacing:normal}
 #settings-form>button{margin:0 10px 10px 0}
 @media(max-width:650px){.settings-open{top:8px;right:50px}.sound,.cabinet.menu-mode .sound{inset:8px 8px auto auto;width:32px;height:32px;padding:5px}}
