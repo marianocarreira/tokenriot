@@ -64,3 +64,14 @@ components retain their own rights. Store software is excluded.
 
 The public repository starts from sanitized source and does not include private
 development history or captures. See CONTRIBUTING.md, CLA.md and SECURITY.md.
+
+## Book and comic
+
+These are separate products in the proprietary Store:
+
+- [Book: the making of TOKEN RIOT (register interest)](https://www.token-riot.store/?product=14-libro-filosofia-0&lang=en).
+- [Comic: view available PDF editions](https://www.token-riot.store/?product=15-comic-0&lang=en).
+
+Choose the publication language separately from the interface language. The
+website passes its selected language to the Store; unavailable editions cannot
+be ordered. A preorder interest registration does not charge the visitor.
